@@ -8,6 +8,18 @@ void usage() {
 	exit(EXIT_FAILURE);
 }
 
+int isInt(char *string) {
+	char c;
+	int i = 0;
+	while ((c = string[i]) != '\0') {
+		if (c < 47 || c > 57) {
+			return 0;
+		}
+		i++;
+	}
+	return 1;
+}
+
 int main(int argc, char **argv) {
 	if (argc == 1) {
 		printf("%s", loremIpsum);
@@ -15,6 +27,10 @@ int main(int argc, char **argv) {
 	}
 
 	if (argc > 2) {
+		usage();
+	}
+
+	if (!isInt(argv[1])) {
 		usage();
 	}
 }
