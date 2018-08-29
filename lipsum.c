@@ -31,8 +31,12 @@ void printXWordsOfLipsum(int numToPrint) {
 		}
 		if (c == ' ') {
 			++numPrinted;
-			putchar(c);
-		} else if ((c == '.' || c == ',') && numPrinted != numToPrint) {
+			if (numPrinted != numToPrint) {
+				putchar(c);
+			} else {
+				putchar('.');
+			}
+		} else if ((c == '.' || c == ',') ) {
 			putchar(c);
 		} else {
 			putchar(c);
